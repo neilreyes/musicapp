@@ -12,27 +12,25 @@ class Profile extends Component{
 		artist = this.props.artist !== null ? this.props.artist : artist;
 
 		return (
-			<div className="Profile row">
-				<figure className="col col-12 col-md-6">
-					<img
-						src={artist.images[0].url}
-						alt="Profile"
-						className="profile-image img-fluid rounded border-5"
-					/>
-				</figure>
-				<div className="col col-12 col-md-6">
-					<h1 className="artist-name">{artist.name}</h1>
+			<div className="card">
+				<h2 className="card-header artist-name">{artist.name}</h2>
+				<img
+					src={artist.images[0].url}
+					alt="Profile"
+					className="profile-image img-fluid rounded border-5"
+				/>
+				<div className="card-block">
 					<span className="artist-followers-total">{artist.followers.total} followers</span>
-					<ul className="Genres">
-						<li>Genres</li>
+					<div className="Genres">
+						<h4>Genres</h4>
 						{artist.genres.map(
 							(genre, key) => {
 								return (
-									<li key={key}>{genre}</li>
+									<span className="badge badge-warning" key={key}>{genre}</span>
 								)
 							}
 						)}
-					</ul>
+					</div>
 				</div>
 			</div>
 		);

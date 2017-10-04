@@ -14,7 +14,7 @@ class Tracks extends Component{
 	playAudio(previewUrl){
 		let audio = new Audio(previewUrl);
 
-		if( !this.state.playing){
+		if(!this.state.playing){
 			audio.play();
 			this.setState({
 				audio: audio,
@@ -43,31 +43,38 @@ class Tracks extends Component{
 		let {tracks} = this.props;
 		console.log('Tracks prop:', this.props);
 		return(
-			<div className="row">
-				<div className="card">
-					<ul className="list-group list-group-flush">
-						{ tracks.map(
-							(track,key)=>{
-								const trackImage = track.album.images[2].url
-								return(
-									<li
-										className="track-entry list-group-item"
-										key={key}
-										onClick={this.playAudio.bind(this, track.preview_url)}
-									>
+			<table className="table table-striped table-hover table-bordered">
+				<thead className="thead-invers">
+					<tr>
+						<th></th>
+						<th>Track Name</th>
+						<th>Album</th>
+					</tr>
+				</thead>
+				<tbody>
+					{ tracks.map(
+						(track,key)=>{
+							const trackImage = track.album.images[2].url
+							return(
+								<tr
+									key={key}
+									onClick={this.playAudio.bind(this, track.preview_url)}
+								>
+									<td>
 										<img
 											src={trackImage}
 											alt={track.name}
 											className="img-fluid"
 										/>
-										{track.name}
-									</li>
-								);
-							}
-						) }
-					</ul>
-				</div>
-			</div>
+									</td>
+									<td>{track.name}</td>
+									<td>{track.album.name}</td>
+								</tr>
+							);
+						}
+					) }
+				</tbody>
+			</table>
 		);
 	}
 }

@@ -70,27 +70,32 @@ class App extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col col-12">
-							<h1>Music Master</h1>
-							<div className="form-group form-inline">
-								<input
-									placeholder="search an artist..."
-									className="form-control"
-									query={this.state.query}
-									onChange={this.handleOnChange.bind(this)}
-									onKeyPress={this.handleOnKeyPress.bind(this)}
-								/>
-								<button
-									className="btn btn-primary"
-									onClick={this.search.bind(this)}
-								>
-									Submit
-								</button>
+							<div className="jumbotron">
+								<h1 className="display-3">Music Master</h1>
+								<p className="lead">Simple web application</p>
+								<div className="form-group form-inline">
+									<div className="input-group">
+										<input
+											placeholder="Search an artist..."
+											className="form-control"
+											query={this.state.query}
+											onChange={this.handleOnChange.bind(this)}
+											onKeyPress={this.handleOnKeyPress.bind(this)}
+										/>
+										<button
+											className="btn btn-info"
+											onClick={this.search.bind(this)}
+										>
+											Search
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div className="Profile col col-12 col-md-8">
+						<div className="Profile col col-12 col-md-5">
 							{ this.state.artist !== null ? <Profile artist={this.state.artist}/> : <div></div> } 
 						</div>
-						<div className="Gallery col col-12 col-md-4">
+						<div className="Gallery col col-12 col-md-7">
 							{ this.state.tracks !== null ? <Tracks tracks={this.state.tracks}/>: <div></div>}
 						</div>
 					</div>
