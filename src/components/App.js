@@ -9,6 +9,7 @@ class App extends Component {
 			query: '',
 			artist: null,
 			tracks: [],
+			neil: '',
 		}		
 	}
 
