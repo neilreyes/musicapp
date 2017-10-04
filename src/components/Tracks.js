@@ -46,7 +46,7 @@ class Tracks extends Component{
 			<table className="table table-striped table-hover table-bordered">
 				<thead className="thead-invers">
 					<tr>
-						<th></th>
+						<th>#</th>
 						<th>Track Name</th>
 						<th>Album</th>
 					</tr>
